@@ -1,5 +1,4 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5120/api/users";
-console.log("🔍 Debug: import.meta.env =", import.meta.env);
 console.log("🔗 API BASE URL:", import.meta.env.VITE_API_BASE_URL);
 
 export const login = async (email, password) => {
