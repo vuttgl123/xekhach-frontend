@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-import styles from "./ErrorAlert.module.css"; // Import CSS module
+import styles from "./erroralert.module.css"; // Import CSS module
 
 export const showErrorAlert = (message) => {
     return Swal.fire({

@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-import styles from "./SuccessAlert.module.css"; // Nếu có CSS module
+import styles from "./successalert.module.css"; // Nếu có CSS module
 
 export const showSuccessAlert = (message) => {
   return Swal.fire({
