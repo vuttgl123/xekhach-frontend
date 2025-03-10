@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaUsers, FaBus, FaMapMarkerAlt } from 'react-icons/fa';
-import styles from './Stats.module.css';
+import styles from './stats.module.css';
 import logoImage from "../../assets/Stats.png";
 
 const Stats = () => {
