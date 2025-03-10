@@ -1,0 +1,115 @@
+.container {
+    width: 100%;
+    padding: 40px 0;
+    margin: 0;
+    background-color: #ffffff;
+  }
+  
+  .hd1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: green;
+    text-align: center;  /* Căn giữa tiêu đề */
+  }
+  .hd2 {
+    font-size: 1rem;
+    font-weight: bold;
+    color:black;
+    text-align: center;  /* Căn giữa tiêu đề */
+  }
+  
+  /* Thẻ div bao bọc statsWrapper và imageWrapper */
+  .centerWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;  /* Tăng khoảng cách giữa các thẻ và ảnh */
+  }
+  
+  /* Chỉnh sửa statsWrapper để phần thẻ chiếm không gian nhiều hơn */
+  .statsWrapper {
+    display: flex;
+    flex-direction: column;  /* Xếp các thẻ theo chiều dọc */
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 50%;  /* Tăng chiều rộng phần thẻ */
+  }
+  
+  /* Chỉnh sửa imageWrapper để ảnh chiếm ít không gian hơn */
+  .imageWrapper {
+    display: flex;
+    justify-content: flex-start;  /* Lệch phải */
+    width: 30%;  /* Giảm chiều rộng phần ảnh */
+    margin-right: auto;  /* Đảm bảo ảnh lệch phải */
+  }
+  
+  .statCard {
+    display: flex;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;  /* Điều chỉnh độ rộng của mỗi thẻ */
+    text-align: left;
+    transition: transform 0.3s ease;
+    margin-left: auto;
+  }
+  
+  .statCard:hover {
+    transform: scale(1.05);
+  }
+  
+  .iconWrapper {
+    background-color: #007bff;
+    width: 100px;  /* Điều chỉnh chiều rộng */
+    height: 100px;  /* Điều chỉnh chiều cao */
+    border-radius: 50%;  /* Đảm bảo hình tròn */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .icon {
+    color: white;
+    font-size: 3rem;
+  }
+  
+  .textWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .titles {
+    display: flex;
+    justify-content: flex-start;  /* Đảm bảo title1 và title2 ở trên cùng một dòng */
+    gap: 10px;
+  }
+  
+  .title1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+  }
+  
+  .title2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 1.2rem;
+    color: #777;
+    margin: 0;
+  }
+  
+  .description {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  

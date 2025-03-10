@@ -1,0 +1,77 @@
+/* Thiết kế tổng thể */
+.routeContainer {
+    text-align: center;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+.header {
+    background: url('../assets/transport-banner.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 60px 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Danh sách tuyến */
+.routeList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Card tuyến đường */
+.routeCard {
+    background: #ffffff;
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    text-align: left;
+}
+
+.routeCard:hover {
+    transform: scale(1.05);
+}
+
+.routeImage {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.routeInfo {
+    padding: 15px;
+}
+
+.routeInfo h2 {
+    font-size: 22px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.routeInfo p {
+    font-size: 16px;
+    color: #555;
+}
+
+.routeTime {
+    font-weight: bold;
+    color: #d9534f;
+    margin-top: 10px;
+}

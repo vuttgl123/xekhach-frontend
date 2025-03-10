@@ -1,0 +1,78 @@
+.promoCardsContainer {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: green;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .cardsWrapper {
+    overflow: hidden; /* Ẩn các phần thẻ ngoài vùng hiển thị */
+  }
+  
+  .cardsRow {
+    display: flex; /* Đảm bảo các thẻ được hiển thị theo hàng ngang */
+    gap: 20px;
+    transition: transform 0.5s ease-in-out; /* Tạo hiệu ứng lướt mượt mà */
+  }
+  
+  .card {
+    flex: 0 0 33.333%; /* Mỗi thẻ chiếm 1/3 chiều rộng */
+    width: 100%;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  .cardImage {
+    width: 100%;
+    height: 150px; /* Làm ảnh cao hơn để chiếm nhiều diện tích hơn */
+    object-fit: cover;
+    display: block;
+    border-bottom: 2px solid #ddd; /* Thêm đường viền giữa ảnh và mô tả */
+  }
+  
+  .cardContent {
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .cardDescription {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .pageIndicatorContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pageIndicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .pageIndicator.active {
+    background-color: #ff5722; /* Đổi màu chấm hiện tại */
+  }
+  
+  .pageIndicator:hover {
+    background-color: #ff8a50;
+  }
+  

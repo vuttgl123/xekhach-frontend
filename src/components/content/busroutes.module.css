@@ -1,0 +1,78 @@
+.busRoutesContainer {
+    background-color: #f8f8f8;
+    width: 100%;
+    padding-top: 25px;
+}
+
+.heading {
+    font-size: 2rem;  /* Cải thiện kích thước tiêu đề */
+    font-weight: 600;  /* Tăng độ đậm của tiêu đề */
+    color: green;  /* Màu sắc phù hợp với chủ đề xanh */
+    text-align: center;
+    letter-spacing: 1px;  /* Tăng khoảng cách giữa các chữ */
+}
+
+.routesWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;  /* Khoảng cách giữa các thẻ */
+    flex-wrap: wrap;
+}
+
+.routeCard {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* Bóng đổ nhẹ nhàng */
+    width: 25%;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.routeCard:hover {
+    transform: scale(1.05);
+}
+
+.routeImage {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 2px solid #eee;  /* Thêm viền dưới ảnh */
+}
+
+.routeContent {
+    padding: 16px;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.routeTitle {
+    font-size: 1.2rem;  /* Kích thước tiêu đề tăng lên */
+    font-weight: 700;  /* Đậm chữ tiêu đề */
+    color: #333;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;  /* Tăng khoảng cách giữa các chữ */
+    text-transform: capitalize;  /* Viết hoa chữ cái đầu tiên */
+}
+
+.routeDetails {
+    font-size: 1rem;
+    color: #555;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    line-height: 1.5;  /* Cải thiện khoảng cách dòng cho dễ đọc */
+}
+
+.routeDetails strong {
+    font-weight: bold;  /* Làm đậm chữ giá vé và các chi tiết quan trọng */
+    color: red;
+}
+
+.routeDate {
+    font-size: 0.9rem;
+    color: #777;  /* Màu nhạt cho ngày */
+    margin-top: 8px;
+    font-style: italic;  /* Làm nghiêng cho ngày khởi hành */
+}

@@ -1,0 +1,25 @@
+.userActions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.hotlineButton, .loginButton {
+    background: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.hotlineButton {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.loginButton {
+    background-color: white;
+}
+

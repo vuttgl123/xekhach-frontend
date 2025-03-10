@@ -1,0 +1,82 @@
+.container {
+    min-height: 100vh;
+    background-color: #f8f9fa; /* Màu nền nhẹ nhàng */
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .header {
+    margin-bottom: 40px;
+  }
+  
+  .title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #007bff; /* Màu xanh chủ đạo */
+  }
+  
+  .description {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .highlight {
+    font-weight: bold;
+    color: #0056b3; /* Xanh đậm hơn để nổi bật */
+  }
+  
+  .university {
+    font-weight: bold;
+    color: #28a745; /* Xanh lá nhẹ nhàng */
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .aboutImage {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text {
+    max-width: 600px;
+  }
+  
+  .sectionTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .icon {
+    color: #007bff;
+    font-size: 24px;
+  }
+  
+  .paragraph {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .teamSection {
+    margin-top: 50px;
+  }
+  
+  .teamGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  

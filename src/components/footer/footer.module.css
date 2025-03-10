@@ -1,0 +1,84 @@
+.footer {
+  background-color: #111;
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+  align-items: start;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #bbb;
+}
+
+.text {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.link {
+  color: #ddd;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.6rem;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.link:hover {
+  color: white;
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.icon {
+  color: #ddd;
+  font-size: 1.8rem;
+  transition: color 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.icon:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.copyright {
+  margin-top: 2rem;
+  border-top: 1px solid #333;
+  padding-top: 1rem;
+  color: #888;
+  font-size: 0.9rem;
+}
