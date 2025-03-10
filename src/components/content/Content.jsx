@@ -1,7 +1,7 @@
 import SearchBox from "./SearchBox";
 import PromoCards from "./PromoCards";
 import BusRoutes from "./BusRoutes";
-import Stats  from "./Stats ";
+import Stats from "./Stats";
 // import OtherSection from "./OtherSection"; // Thêm các phần khác nếu có
 import styles from "./content.module.css"; // Nếu bạn muốn style riêng cho content
 
@@ -11,7 +11,7 @@ const Content = () => {
             <SearchBox />
             <PromoCards />
             <BusRoutes />
-            <Stats  />
+            <Stats />
         </div>
     );
 };
