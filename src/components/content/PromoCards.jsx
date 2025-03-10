@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./PromoCards.module.css";
+import styles from "./promocards.module.css";
 import useAutoScroll from "./useAutoScroll";
 
 const PromoCards = () => {
