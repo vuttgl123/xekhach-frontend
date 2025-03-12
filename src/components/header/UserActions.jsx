@@ -55,7 +55,7 @@ const UserActions = () => {
                 <UserDropdown userName={userName} setIsLoggedIn={setIsLoggedIn} />
             ) : (
                 <button className={styles.loginButton} onClick={() => openModal("login")}>
-                    Đăng nhập
+                    Login
                 </button>
             )}
 
