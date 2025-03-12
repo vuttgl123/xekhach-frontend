@@ -130,42 +130,47 @@
 
 @media (max-width: 768px) {
   .container {
-    margin-right: 25px;
+      max-width: 100%;
+      display: flex;
+      justify-content: center; /* Căn giữa nội dung */
   }
 
   .searchBox {
-      padding: 15px; /* Giảm padding trong box */
+      margin: 0 auto; /* Đưa về giữa */
+      width: 90%; /* Giới hạn chiều rộng để không quá to */
+      max-width: 400px; /* Không để quá lớn trên mobile */
   }
 
   .tripOptions {
-      flex-direction: column; /* Xếp các lựa chọn thành hàng dọc */
+      flex-direction: column;
       align-items: flex-start;
       gap: 10px;
   }
 
   .tripSelection {
       gap: 10px;
-      font-size: 14px; /* Giảm kích thước chữ để vừa vặn */
+      font-size: 14px;
   }
 
   .inputGroupWide {
-      flex-direction: column; /* Input xuống hàng thay vì nằm ngang */
+      flex-direction: column;
       gap: 10px;
       padding: 10px;
   }
 
   .inputField {
-      padding: 12px; /* Giảm padding */
+      padding: 12px;
       font-size: 16px;
   }
 
   .largeInput, .datePicker {
-      font-size: 16px; /* Giảm chữ để phù hợp với mobile */
+      font-size: 16px;
   }
 
   .searchBtn {
-      font-size: 18px; /* Giảm chữ nhưng vẫn đủ lớn */
+      font-size: 18px;
       padding: 12px;
       margin-top: 12px;
   }
 }
+
