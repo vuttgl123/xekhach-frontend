@@ -23,7 +23,7 @@
 
 @media (max-width: 768px) {
     .logoContainer img {
-        max-height: 35px; /* Tăng kích thước logo */
+        max-height: 30px; /* Tăng kích thước logo */
     }
     .commitmentText {
        display: none;

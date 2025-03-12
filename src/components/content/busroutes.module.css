@@ -85,6 +85,7 @@
     .routeCard {
         width: 90%; /* Mỗi thẻ chiếm gần hết màn hình để dễ nhìn */
         margin: auto; /* Căn giữa trên mobile */
+        margin-bottom: 10px;
     }
 
     .routeImage {

@@ -75,4 +75,11 @@
   .pageIndicator:hover {
     background-color: #ff8a50;
   }
-  
+  @media (max-width: 768px) {
+    .heading {
+      text-align: center;
+      margin-right: 20px;
+    }
+
+
+  }

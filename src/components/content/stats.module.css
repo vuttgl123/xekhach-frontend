@@ -118,17 +118,20 @@
         gap: 20px;
         align-items: center; /* Căn giữa tất cả */
         text-align: center;
+        padding: 0 15px; /* Thêm padding để tránh mất chữ */
     }
 
     .statsWrapper {
-        width: 100%; /* Mở rộng thẻ stats để chiếm toàn bộ chiều ngang */
+        width: 90%; /* Giữ nội dung không tràn mép */
+        max-width: 400px; /* Giới hạn chiều rộng */
     }
 
     .statCard {
-        max-width: 100%; /* Chiếm toàn bộ màn hình trên mobile */
+        max-width: 100%;
         text-align: center;
-        flex-direction: column; /* Chuyển icon lên trên */
+        flex-direction: column;
         align-items: center;
+        padding: 10px; /* Thêm padding để cân đối */
     }
 
     .iconWrapper {
@@ -136,16 +139,12 @@
     }
 
     .titles {
-        flex-direction: column; /* Chữ xuống hàng thay vì nằm ngang */
+        flex-direction: column;
         align-items: center;
     }
 
     .imageWrapper {
-        width: 80%; /* Ảnh lớn hơn trên mobile */
-        justify-content: center;
-    }
-
-    .image {
-        display: none;
+        display: none; /* Ẩn ảnh trên mobile để không chiếm không gian */
     }
 }
+

@@ -130,7 +130,7 @@
 
 @media (max-width: 768px) {
   .container {
-      padding: 20px; /* Giảm padding để không quá rộng */
+    margin-right: 25px;
   }
 
   .searchBox {
