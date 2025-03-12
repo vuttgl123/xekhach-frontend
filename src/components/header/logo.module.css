@@ -20,3 +20,19 @@
     color: white;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
+
+@media (max-width: 768px) {
+    .logoContainer {
+        flex-direction: column; /* Xếp logo và chữ cam kết theo chiều dọc */
+        text-align: center;
+    }
+
+    .logoContainer img {
+        max-height: 40px; /* Giảm kích thước logo trên mobile */
+    }
+
+    .commitmentText {
+        font-size: 14px; /* Giảm nhẹ kích thước chữ để vừa với mobile */
+        margin-left: 0; /* Canh giữa chữ cam kết */
+    }
+}

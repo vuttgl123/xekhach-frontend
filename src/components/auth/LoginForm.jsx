@@ -25,7 +25,6 @@ const LoginForm = ({ switchToRegister, switchToForgotPassword }) => {
             showErrorAlert(err.message);
         }
     };
-    
 
     return (
         <div className={styles.formContainer}>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
+import { useNavigate, useLocation } from "react-router-dom";
 import Modal from "../modal/Modal";
 import styles from "./useraction.module.css";
 import LoginForm from "../auth/LoginForm";
@@ -8,17 +9,25 @@ import ForgotPasswordForm from "../auth/ForgotPasswordForm";
 import { fetchUserProfile } from "../api/authApi";
 import UserDropdown from "./UserDropdown";
 
+const PAGE_TITLES = {
+    "/login": "Đăng nhập - Xe Khách",
+    "/register": "Đăng ký - Xe Khách",
+    "/forgot-password": "Quên mật khẩu - Xe Khách",
+};
+
 const UserActions = () => {
     const [activeModal, setActiveModal] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userName, setUserName] = useState("");
+    const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const checkLoginStatus = async () => {
             try {
                 const user = await fetchUserProfile();
                 setIsLoggedIn(!!user);
-                if (user) setUserName(user.fullName || "Người dùng"); // Lấy tên user
+                setUserName(user?.fullName || "Người dùng");
             } catch (error) {
                 setIsLoggedIn(false);
             }
@@ -27,10 +36,14 @@ const UserActions = () => {
         checkLoginStatus();
     }, []);
 
-    const switchModal = (modalName) => {
-        setActiveModal(null);
-        setTimeout(() => setActiveModal(modalName), 300);
-    };
+    useEffect(() => {
+        const modalType = location.pathname.slice(1); // Lấy phần sau dấu "/"
+        setActiveModal(PAGE_TITLES[location.pathname] ? modalType : null);
+        document.title = PAGE_TITLES[location.pathname] || "Trang chủ - Xe Khách";
+    }, [location.pathname]);
+
+    const openModal = (modalName) => navigate(`/${modalName}`);
+    const closeModal = () => navigate("/home");
 
     return (
         <div className={styles.userActions}>
@@ -41,25 +54,23 @@ const UserActions = () => {
             {isLoggedIn ? (
                 <UserDropdown userName={userName} setIsLoggedIn={setIsLoggedIn} />
             ) : (
-                <button className={styles.loginButton} onClick={() => setActiveModal("login")}>
+                <button className={styles.loginButton} onClick={() => openModal("login")}>
                     Đăng nhập
                 </button>
             )}
 
-            <Modal isOpen={activeModal === "login"} onClose={() => setActiveModal(null)}>
-                <LoginForm 
-                    switchToRegister={() => switchModal("register")} 
-                    switchToForgotPassword={() => switchModal("forgotPassword")} 
-                />
-            </Modal>
-
-            <Modal isOpen={activeModal === "register"} onClose={() => setActiveModal(null)}>
-                <RegisterForm switchToLogin={() => switchModal("login")} />
-            </Modal>
-
-            <Modal isOpen={activeModal === "forgotPassword"} onClose={() => setActiveModal(null)}>
-                <ForgotPasswordForm switchToLogin={() => switchModal("login")} />
-            </Modal>
+            {["login", "register", "forgot-password"].map((modal) => (
+                <Modal key={modal} isOpen={activeModal === modal} onClose={closeModal}>
+                    {modal === "login" && (
+                        <LoginForm 
+                            switchToRegister={() => openModal("register")} 
+                            switchToForgotPassword={() => openModal("forgot-password")} 
+                        />
+                    )}
+                    {modal === "register" && <RegisterForm switchToLogin={() => openModal("login")} />}
+                    {modal === "forgot-password" && <ForgotPasswordForm switchToLogin={() => openModal("login")} />}
+                </Modal>
+            ))}
         </div>
     );
 };
