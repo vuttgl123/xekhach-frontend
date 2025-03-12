@@ -112,4 +112,40 @@
     height: auto;
     border-radius: 10px;
   }
-  
+  @media (max-width: 768px) {
+    .centerWrapper {
+        flex-direction: column; /* Xếp các phần tử theo chiều dọc */
+        gap: 20px;
+        align-items: center; /* Căn giữa tất cả */
+        text-align: center;
+    }
+
+    .statsWrapper {
+        width: 100%; /* Mở rộng thẻ stats để chiếm toàn bộ chiều ngang */
+    }
+
+    .statCard {
+        max-width: 100%; /* Chiếm toàn bộ màn hình trên mobile */
+        text-align: center;
+        flex-direction: column; /* Chuyển icon lên trên */
+        align-items: center;
+    }
+
+    .iconWrapper {
+        margin-bottom: 10px; /* Giữ khoảng cách giữa icon và text */
+    }
+
+    .titles {
+        flex-direction: column; /* Chữ xuống hàng thay vì nằm ngang */
+        align-items: center;
+    }
+
+    .imageWrapper {
+        width: 80%; /* Ảnh lớn hơn trên mobile */
+        justify-content: center;
+    }
+
+    .image {
+        display: none;
+    }
+}

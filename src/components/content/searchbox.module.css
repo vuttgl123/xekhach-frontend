@@ -127,3 +127,45 @@
 .searchBtn:hover {
   background: #0056b3;
 }
+
+@media (max-width: 768px) {
+  .container {
+      padding: 20px; /* Giảm padding để không quá rộng */
+  }
+
+  .searchBox {
+      padding: 15px; /* Giảm padding trong box */
+  }
+
+  .tripOptions {
+      flex-direction: column; /* Xếp các lựa chọn thành hàng dọc */
+      align-items: flex-start;
+      gap: 10px;
+  }
+
+  .tripSelection {
+      gap: 10px;
+      font-size: 14px; /* Giảm kích thước chữ để vừa vặn */
+  }
+
+  .inputGroupWide {
+      flex-direction: column; /* Input xuống hàng thay vì nằm ngang */
+      gap: 10px;
+      padding: 10px;
+  }
+
+  .inputField {
+      padding: 12px; /* Giảm padding */
+      font-size: 16px;
+  }
+
+  .largeInput, .datePicker {
+      font-size: 16px; /* Giảm chữ để phù hợp với mobile */
+  }
+
+  .searchBtn {
+      font-size: 18px; /* Giảm chữ nhưng vẫn đủ lớn */
+      padding: 12px;
+      margin-top: 12px;
+  }
+}

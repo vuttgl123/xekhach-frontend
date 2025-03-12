@@ -53,61 +53,10 @@
 }
 
 @media (max-width: 768px) {
-    .navLinks {
-        flex-direction: column; /* Xếp menu theo chiều dọc */
-        position: absolute;
-        top: 60px; /* Điều chỉnh theo chiều cao navbar */
-        right: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        padding: 15px 0;
-        display: none; /* Ẩn menu mặc định */
-    }
-
-    .navItem {
-        display: block;
-        text-align: center;
-        padding: 10px;
-        width: 100%;
-    }
-
-    /* Hiển thị menu khi có class 'active' */
-    .navLinks.active {
-        display: flex;
+    .navLinks a:not(:first-child), 
+    .partnerDropdown {
+        display: none; /* Ẩn tất cả mục trừ "Đơn hàng của tôi" */
     }
 }
 
-.navItem {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
 
-/* Điều chỉnh Dropdown trên Mobile */
-.partnerDropdown {
-    position: relative;
-}
-
-/* Căn chỉnh dropdown menu trên Mobile */
-@media (max-width: 768px) {
-    .dropdownMenu {
-        position: static; /* Không hiển thị nổi */
-        width: 100%; /* Căn chỉnh full width */
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: none;
-        border-radius: 0;
-        display: none;
-    }
-
-    /* Khi mở dropdown */
-    .dropdownMenu.open {
-        display: flex;
-    }
-
-    .dropdownItem {
-        text-align: center;
-        color: black;
-        padding: 12px 0;
-        font-size: 16px;
-    }
-}

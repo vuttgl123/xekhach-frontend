@@ -76,3 +76,34 @@
     margin-top: 8px;
     font-style: italic;  /* Làm nghiêng cho ngày khởi hành */
 }
+@media (max-width: 768px) {
+    .routesWrapper {
+        flex-direction: column; /* Đảm bảo các tuyến xuống hàng trên mobile */
+        gap: 15px;
+    }
+
+    .routeCard {
+        width: 90%; /* Mỗi thẻ chiếm gần hết màn hình để dễ nhìn */
+        margin: auto; /* Căn giữa trên mobile */
+    }
+
+    .routeImage {
+        height: 180px; /* Làm ảnh lớn hơn để rõ hơn */
+    }
+
+    .routeContent {
+        padding: 12px; /* Giảm padding để gọn gàng */
+    }
+
+    .routeTitle {
+        font-size: 1.1rem; /* Giảm nhẹ chữ để vừa màn hình */
+    }
+
+    .routeDetails {
+        font-size: 0.9rem; /* Giảm kích thước chữ */
+    }
+
+    .routeDate {
+        font-size: 0.85rem; /* Nhỏ hơn một chút để không chiếm quá nhiều chỗ */
+    }
+}

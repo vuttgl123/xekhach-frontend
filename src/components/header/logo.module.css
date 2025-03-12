@@ -22,17 +22,10 @@
 }
 
 @media (max-width: 768px) {
-    .logoContainer {
-        flex-direction: column; /* Xếp logo và chữ cam kết theo chiều dọc */
-        text-align: center;
-    }
-
     .logoContainer img {
-        max-height: 40px; /* Giảm kích thước logo trên mobile */
+        max-height: 35px; /* Tăng kích thước logo */
     }
-
     .commitmentText {
-        font-size: 14px; /* Giảm nhẹ kích thước chữ để vừa với mobile */
-        margin-left: 0; /* Canh giữa chữ cam kết */
+       display: none;
     }
 }

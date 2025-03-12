@@ -6,7 +6,7 @@ const NavigationLinks = () => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     return (
         <nav className={styles.navLinks}>
-            <a href="#" className={styles.navItem}>Đơn hàng của tôi</a>
+            <a href="#" className={styles.navItem}>Lịch sử đặt vé</a>
             <a href="#" className={styles.navItem}>Mở bán vé trên VuBac</a>
             <div 
                 className={styles.partnerDropdown} 
