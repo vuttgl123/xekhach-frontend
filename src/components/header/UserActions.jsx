@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Modal from "../modal/Modal";
 import styles from "./useraction.module.css";
 import LoginForm from "../auth/LoginForm";
-import RegisterForm from "../auth/RegisterForm";
+import RegisterForm from "../auth/RegisterForm/RegisterForm";
 import ForgotPasswordForm from "../auth/ForgotPasswordForm";
 import { fetchUserProfile } from "../api/authApi";
 import UserDropdown from "./UserDropdown";
@@ -62,9 +62,9 @@ const UserActions = () => {
             {["login", "register", "forgot-password"].map((modal) => (
                 <Modal key={modal} isOpen={activeModal === modal} onClose={closeModal}>
                     {modal === "login" && (
-                        <LoginForm 
-                            switchToRegister={() => openModal("register")} 
-                            switchToForgotPassword={() => openModal("forgot-password")} 
+                        <LoginForm
+                            switchToRegister={() => openModal("register")}
+                            switchToForgotPassword={() => openModal("forgot-password")}
                         />
                     )}
                     {modal === "register" && <RegisterForm switchToLogin={() => openModal("login")} />}

@@ -118,3 +118,104 @@
 .closeButton:hover {
     color: #000;
 }
+
+/* 🛑 Thông báo lỗi - Hiển thị dưới input */
+.errorMessage {
+    color: #d9534f; /* Màu đỏ cảnh báo */
+    font-size: 13px;
+    margin-top: 5px;
+    text-align: left;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+/* 🛑 Đổi màu viền input khi có lỗi */
+.inputGroup.error {
+    border: 1px solid #d9534f; /* Viền đỏ khi có lỗi */
+    background: #fbe9e7; /* Nền hồng nhẹ để cảnh báo */
+}
+
+.inputGroup.error input {
+    color: #d9534f; /* Chữ đỏ khi có lỗi */
+}
+
+/* 🛑 Animation nhẹ khi hiển thị lỗi */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out; /* Rung nhẹ khi có lỗi */
+}
+
+/* 🟢 Nhóm radio button */
+.genderGroup {
+    display: flex;
+    gap: 15px;
+}
+
+/* 🟢 Radio button tùy chỉnh */
+.radioLabel {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* 🟢 Thiết kế radio button */
+.radioLabel input {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #2ca58d;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+/* 🟢 Hiệu ứng khi chọn radio */
+.radioLabel input:checked {
+    background-color: #2ca58d;
+    border: 5px solid white;
+    box-shadow: 0 0 0 2px #2ca58d;
+}
+
+/* 🟢 Hiển thị lỗi nếu radio chưa chọn */
+.genderGroup.error {
+    border: 1px solid #d9534f;
+    padding: 5px;
+    border-radius: 5px;
+    background: #fbe9e7;
+}
+
+/* 🟢 Nhóm nút điều hướng */
+.buttonGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* 🟢 Nút Quay lại */
+.backButton {
+    background: #ccc;
+    color: #333;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+}
+
+.backButton:hover {
+    background: #bbb;
+}
