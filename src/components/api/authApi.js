@@ -95,3 +95,50 @@ export const logout = async () => {
         console.error("Lỗi khi đăng xuất:", error);
     }
 };
+
+// 📌 Gửi OTP
+export const sendOtp = async (email) => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/forgot-password`, {
+            method: "POST",
+            headers: DEFAULT_HEADERS,
+            body: JSON.stringify({ email }),
+        });
+        if (!response.ok) throw new Error("Lỗi khi gửi OTP!");
+        return await response.json();
+    } catch (error) {
+        throw new Error(error.message);
+    }
+};
+
+// 📌 Xác nhận OTP
+export const verifyOtp = async (email, otpCode) => {
+    try {
+        // console.log("🔍 Gửi dữ liệu:", { email, otpCode }); // Kiểm tra log
+        const response = await fetch(`${API_BASE_URL}/verify-otp`, {
+            method: "POST",
+            headers: DEFAULT_HEADERS,
+            body: JSON.stringify({ email, otpCode }),  // Kiểm tra lại biến này
+        });
+        return await handleResponse(response);
+    } catch (error) {
+        console.error("❌ Lỗi khi xác nhận OTP:", error);
+        throw error;
+    }
+};
+
+
+// 📌 Đặt lại mật khẩu
+export const resetPassword = async (email, newPassword) => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/reset-password`, {
+            method: "POST",
+            headers: DEFAULT_HEADERS,
+            body: JSON.stringify({ email, newPassword }),
+        });
+        if (!response.ok) throw new Error("Không thể cập nhật mật khẩu!");
+        return await response.json();
+    } catch (error) {
+        throw new Error(error.message);
+    }
+};

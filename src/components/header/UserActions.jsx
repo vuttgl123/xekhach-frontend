@@ -5,7 +5,7 @@ import Modal from "../modal/Modal";
 import styles from "./useraction.module.css";
 import LoginForm from "../auth/LoginForm";
 import RegisterForm from "../auth/RegisterForm/RegisterForm";
-import ForgotPasswordForm from "../auth/ForgotPasswordForm";
+import ForgotPasswordForm from "../auth/ForgotPasswordForm/ForgotPasswordForm";
 import { fetchUserProfile } from "../api/authApi";
 import UserDropdown from "./UserDropdown";
 
@@ -27,7 +27,7 @@ const UserActions = () => {
             try {
                 const user = await fetchUserProfile();
                 setIsLoggedIn(!!user);
-                setUserName(user?.fullName || "User");
+                setUserName(user?.email);
             } catch (error) {
                 setIsLoggedIn(false);
             }
