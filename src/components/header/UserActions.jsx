@@ -27,7 +27,7 @@ const UserActions = () => {
             try {
                 const user = await fetchUserProfile();
                 setIsLoggedIn(!!user);
-                setUserName(user?.email);
+                setUserName("User");
             } catch (error) {
                 setIsLoggedIn(false);
             }

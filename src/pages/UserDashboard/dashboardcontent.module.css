@@ -1,0 +1,27 @@
+.content {
+    flex: 1; /* Cho phép chiếm toàn bộ không gian trống */
+    padding: 20px; /* Thêm khoảng cách lề */
+    background: white;
+    min-height: 100vh; /* Đảm bảo chiếm toàn bộ chiều cao màn hình */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa nội dung */
+    justify-content: flex-start;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    width: 100%; /* Trải rộng toàn bộ */
+    max-width: 1200px; /* Định giới hạn để không quá rộng trên màn hình lớn */
+}
+
+.card {
+    background: #3498db;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+    font-size: 20px;
+}

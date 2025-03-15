@@ -1,0 +1,11 @@
+.dashboardWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #f8f9fa;
+}
+
+.dashboardContent {
+    display: flex;
+    flex: 1;
+}

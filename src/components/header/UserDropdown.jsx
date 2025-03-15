@@ -35,6 +35,12 @@ const UserDropdown = ({ userName, setIsLoggedIn }) => {
         }
     };
 
+    // 📌 Xử lý điều hướng đến các phần khác của UserDashboard
+    const handleNavigate = (section) => {
+        navigate(`/user-dashboard?section=${section}`);
+        setIsOpen(false); // Đóng dropdown sau khi click
+    };
+
     return (
         <div className={styles.userDropdown} ref={dropdownRef}>
             <div
@@ -52,23 +58,23 @@ const UserDropdown = ({ userName, setIsLoggedIn }) => {
             {isOpen && (
                 <div className={styles.dropdownMenu} role="menu">
                     <ul>
-                        <li>
+                        <li onClick={() => handleNavigate("profile")}>
                             <FaRegUser className={styles.menuIcon} />
                             Thông tin tài khoản
                         </li>
-                        <li>
+                        <li onClick={() => handleNavigate("membership")}>
                             <FaTicketAlt className={styles.menuIcon} />
                             Thành viên <strong>Thường</strong>
                         </li>
-                        <li>
+                        <li onClick={() => handleNavigate("cards")}>
                             <FaRegCreditCard className={styles.menuIcon} />
                             Quản lý thẻ
                         </li>
-                        <li>
+                        <li onClick={() => handleNavigate("reviews")}>
                             <FaStar className={styles.menuIcon} />
                             Nhận xét chuyến đi
                         </li>
-                        <li>
+                        <li onClick={() => handleNavigate("offers")}>
                             <FaGift className={styles.menuIcon} />
                             Ưu đãi
                         </li>
