@@ -11,7 +11,6 @@
     z-index: 1000;
 }
 
-
 .modalContent {
     background: white;
     padding: 20px;
@@ -35,15 +34,24 @@
     }
 }
 
-
 .modalTitle {
     font-size: 22px;
     margin-bottom: 15px;
     color: #333;
 }
 
-
 .inputGroup {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.inputGroupLogin {
     display: flex;
     align-items: center;
     background: white;
@@ -57,6 +65,13 @@
     color: #2ca58d;
     font-size: 16px;
     margin-right: 10px;
+}
+
+.inputGroupLogin input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
 }
 
 .inputGroup input {
@@ -121,7 +136,8 @@
 
 /* 🛑 Thông báo lỗi - Hiển thị dưới input */
 .errorMessage {
-    color: #d9534f; /* Màu đỏ cảnh báo */
+    color: #d9534f;
+    /* Màu đỏ cảnh báo */
     font-size: 13px;
     margin-top: 5px;
     text-align: left;
@@ -131,25 +147,43 @@
 
 /* 🛑 Đổi màu viền input khi có lỗi */
 .inputGroup.error {
-    border: 1px solid #d9534f; /* Viền đỏ khi có lỗi */
-    background: #fbe9e7; /* Nền hồng nhẹ để cảnh báo */
+    border: 1px solid #d9534f;
+    /* Viền đỏ khi có lỗi */
+    background: #fbe9e7;
+    /* Nền hồng nhẹ để cảnh báo */
 }
 
 .inputGroup.error input {
-    color: #d9534f; /* Chữ đỏ khi có lỗi */
+    color: #d9534f;
+    /* Chữ đỏ khi có lỗi */
 }
 
 /* 🛑 Animation nhẹ khi hiển thị lỗi */
 @keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
 
 .shake {
-    animation: shake 0.3s ease-in-out; /* Rung nhẹ khi có lỗi */
+    animation: shake 0.3s ease-in-out;
+    /* Rung nhẹ khi có lỗi */
 }
 
 /* 🟢 Nhóm radio button */
