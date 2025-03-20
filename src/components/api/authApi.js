@@ -83,6 +83,28 @@ export const fetchUserProfile = async () => {
     }
 };
 
+export const updateUserProfile = async (userData) => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/me`, {
+            method: "PUT",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userData),
+        });
+
+        if (!response.ok) {
+            throw new Error("Không thể cập nhật thông tin người dùng.");
+        }
+
+        return await response.json(); // Trả về dữ liệu cập nhật
+    } catch (error) {
+        console.error("Lỗi khi cập nhật thông tin người dùng:", error);
+        return null;
+    }
+};
+
 // 🟢 API Đăng xuất
 export const logout = async () => {
     try {

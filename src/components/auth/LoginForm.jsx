@@ -28,7 +28,7 @@ const LoginForm = ({ switchToRegister, switchToForgotPassword }) => {
     return (
         <div className={styles.formContainer}>
             <h2 className={styles.modalTitle}>Đăng nhập</h2>
-            <div className={styles.inputGroupLogin}>
+            <div className={styles.inputGroup}>
                 <FaUser className={styles.icon} />
                 <input
                     type="text"
@@ -39,7 +39,7 @@ const LoginForm = ({ switchToRegister, switchToForgotPassword }) => {
                 />
             </div>
 
-            <div className={styles.inputGroupLogin}>
+            <div className={styles.inputGroup}>
                 <FaLock className={styles.icon} />
                 <input
                     type="password"

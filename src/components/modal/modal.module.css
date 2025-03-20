@@ -41,17 +41,6 @@
 }
 
 .inputGroup {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    background: white;
-    border-radius: 5px;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
-.inputGroupLogin {
     display: flex;
     align-items: center;
     background: white;
@@ -65,13 +54,6 @@
     color: #2ca58d;
     font-size: 16px;
     margin-right: 10px;
-}
-
-.inputGroupLogin input {
-    border: none;
-    outline: none;
-    flex: 1;
-    font-size: 14px;
 }
 
 .inputGroup input {
@@ -235,6 +217,7 @@
     align-items: center;
     gap: 10px;
     margin-top: 15px;
+    width: 100%;
 }
 
 /* 🟢 Nút Quay lại */
@@ -247,6 +230,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    width: 100%;
     transition: background 0.3s ease-in-out;
 }
 

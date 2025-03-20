@@ -27,7 +27,7 @@ const DashboardContent = ({ section }) => {
 
             {section === "profile" && <UserProfile />}
             {section === "membership" && <p>Thông tin thành viên.</p>}
-            {section === "cards" && <p>Quản lý thẻ thanh toán.</p>}
+            {section === "tickets" && <p>Vé của tôi.</p>}
             {section === "reviews" && <p>Nhận xét chuyến đi.</p>}
             {section === "offers" && <p>Ưu đãi của bạn.</p>}
             {section === "logout" && <p>Bạn đã đăng xuất thành công.</p>}

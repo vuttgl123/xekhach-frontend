@@ -54,8 +54,8 @@ const Sidebar = ({ activeSection, handleNavigation }) => {
                     <li className={activeSection === "membership" ? styles.active : ""} onClick={() => handleNavigation("membership")}>
                         <FaTicketAlt className={styles.icon} /> Thành viên
                     </li>
-                    <li className={activeSection === "cards" ? styles.active : ""} onClick={() => handleNavigation("cards")}>
-                        <FaRegCreditCard className={styles.icon} /> Quản lý thẻ
+                    <li className={activeSection === "tickets" ? styles.active : ""} onClick={() => handleNavigation("tickets")}>
+                        <FaRegCreditCard className={styles.icon} /> Vé của tôi
                     </li>
                     <li className={activeSection === "reviews" ? styles.active : ""} onClick={() => handleNavigation("reviews")}>
                         <FaStar className={styles.icon} /> Nhận xét

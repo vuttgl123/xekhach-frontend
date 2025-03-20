@@ -14,7 +14,7 @@ h2 {
 }
 
 /* Form hiển thị full width */
-form {
+.userProfileForm {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -23,11 +23,12 @@ form {
 }
 
 /* Label căn chỉnh đẹp */
-label {
+.labelstyle {
     font-size: 16px;
     font-weight: bold;
     width: 100%;
     margin-bottom: 5px;
+    color: red
 }
 
 /* Input và Icon */
