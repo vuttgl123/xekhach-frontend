@@ -1,0 +1,248 @@
+.card {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 24px 28px;
+    border-radius: 14px;
+    background-color: #f9fbff;
+    border-left: 4px solid #3b82f6;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', sans-serif;
+    margin-bottom: 20px;
+    transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.left {
+    flex: 1;
+}
+
+.operator {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #1f2937;
+}
+
+.rating {
+    display: inline-block;
+    background-color: #2563eb;
+    color: white;
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vehicle {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 16px;
+}
+
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 20px;
+}
+
+.timeBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 40%;
+}
+
+.timeItem {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    gap: 6px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.timeItem strong {
+    font-size: 16px;
+    color: #111827;
+}
+
+.place {
+    font-size: 14px;
+    color: #374151;
+    word-break: break-word;
+}
+
+.duration {
+    font-size: 13px;
+    color: #9ca3af;
+    font-style: italic;
+    align-self: center;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 700;
+    color: red;
+    margin-bottom: 6px;
+}
+
+.seats {
+    font-size: 14px;
+    color: #10b981;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.note {
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.right {
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.details {
+    font-size: 13px;
+    color: #2563eb;
+    text-decoration: underline;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.bookBtn {
+    background-color: #facc15;
+    color: #111827;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.bookBtn:hover {
+    background-color: #eab308;
+}
+
+.metaInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+.route {
+    font-weight: 600;
+    color: #0056b3;
+}
+
+.date {
+    font-style: italic;
+    color: red;
+}
+
+@media (max-width: 768px) {
+    .card {
+      flex-direction: column;
+      padding: 12px 14px; /* giảm padding */
+      gap: 12px; /* thu gọn khoảng cách */
+    }
+  
+    .metaInfo {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+  
+    .operator {
+      font-size: 17px;
+      margin-bottom: 2px;
+    }
+  
+    .vehicle {
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+  
+    .timeline {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+  
+    .timeBlock {
+      width: 48%;
+      gap: 2px;
+    }
+  
+    .place {
+      font-size: 13px;
+    }
+  
+    .duration {
+      display: none;
+    }
+  
+    .price {
+      font-size: 17px;
+      margin-bottom: 2px;
+    }
+  
+    .seats {
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+  
+    .rating {
+      display: none;
+    }
+  
+    .right {
+      width: 100%;
+      align-items: stretch;
+      gap: 6px;
+    }
+  
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+    }
+  
+    .bookBtn {
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 6px;
+    }
+  
+    .details {
+      font-size: 13px;
+      color: #2563eb;
+      text-decoration: underline;
+      margin-left: 4px;
+    }
+  }
+  

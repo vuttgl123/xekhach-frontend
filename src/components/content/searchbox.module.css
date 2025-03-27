@@ -95,16 +95,37 @@
   color: #dc3545;
 }
 
+.swapBtn {
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swapBtn:hover {
+  background-color: #e0e0e0;
+}
+
 .iconSwap {
-  font-size: 22px;
-  color: #6c757d;
+  font-size: 20px;
+  color: #555;
+  transition: transform 0.4s ease-in-out;
+}
+
+.iconSwap.rotate {
+  transform: rotate(180deg);
 }
 
 /* Ô nhập lịch ngày */
 .datePicker {
   border: none;
   outline: none;
-  font-size: 18px;
+  font-size: 16px;
   padding: 4px;
   background: transparent;
 }
@@ -127,7 +148,10 @@
 .searchBtn:hover {
   background: #0056b3;
 }
-
+.selectBox {
+  width: 100%;
+  min-width: 0;
+}
 @media (max-width: 768px) {
   .container {
       max-width: 100%;
@@ -172,5 +196,18 @@
       padding: 12px;
       margin-top: 12px;
   }
+  .inputGroupWide {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .swapBtn {
+    align-self: center;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+  }
 }
+
+
 

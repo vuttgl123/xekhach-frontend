@@ -1,0 +1,72 @@
+.pageWrapper {
+    background-color: #f3f4f6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* ✅ FULL WIDTH CHO SEARCH BOX */
+  .searchBoxWrapper {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* ✅ FULL WIDTH CHO DÒNG CHÍNH */
+  .resultsRow {
+    display: flex;
+    width: 1200px; 
+    margin: 0 auto;
+    padding: 0 24px;
+    gap: 24px;
+    box-sizing: border-box;
+  }
+  
+  .mainContent {
+    flex: 1;
+    background-color: white;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+  }
+  
+  /* Optional: SidebarFilters.module.css */
+  .sidebar {
+    width: 260px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+  }
+  @media (max-width: 768px) {
+    .resultsRow {
+        flex-direction: column;
+        width: 100%;
+        padding: 16px;
+        gap: 16px;
+      }
+    
+      .sidebar {
+        width: 100%;
+        padding: 12px 16px;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        background-color: white;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+  
+    .mainContent {
+      padding: 16px;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .mainContent h1 {
+        margin-top: 8px;
+        margin-bottom: 16px;
+        font-size: 20px;
+      }
+  }
+  

@@ -66,7 +66,7 @@ const RegisterForm = ({ switchToLogin }) => {
 
             <p className={styles.signupText}>
                 Bạn đã có tài khoản?{" "}
-                <a href="#" className={styles.signupLink} onClick={switchToLogin}>
+                <a href="" className={styles.signupLink} onClick={switchToLogin}>
                     Đăng nhập
                 </a>
             </p>

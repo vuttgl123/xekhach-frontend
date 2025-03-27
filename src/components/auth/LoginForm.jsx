@@ -50,12 +50,12 @@ const LoginForm = ({ switchToRegister, switchToForgotPassword }) => {
                 />
             </div>
 
-            <a href="#" className={styles.forgotPassword} onClick={switchToForgotPassword}>Quên mật khẩu?</a>
+            <a href="" className={styles.forgotPassword} onClick={switchToForgotPassword}>Quên mật khẩu?</a>
 
             <button className={styles.submitButton} onClick={handleLogin}>Đăng nhập</button>
 
             <p className={styles.signupText}>
-                Bạn không có tài khoản? <a href="#" className={styles.signupLink} onClick={switchToRegister}>Đăng kí ngay</a>
+                Bạn không có tài khoản? <a href="" className={styles.signupLink} onClick={switchToRegister}>Đăng kí ngay</a>
             </p>
         </div>
     );

@@ -27,7 +27,7 @@ const UserDropdown = ({ userName, setIsLoggedIn }) => {
             await logout();
             showSuccessAlert("Đăng xuất thành công!").then(() => {
                 setIsLoggedIn(false);
-                navigate("/login"); // 🔥 Điều hướng không cần reload trang
+                navigate("/home"); // 🔥 Điều hướng không cần reload trang
             });
         } catch (error) {
             showErrorAlert("Lỗi khi đăng xuất. Vui lòng thử lại!");
