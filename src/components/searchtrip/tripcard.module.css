@@ -40,7 +40,7 @@
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
-.vehicle {
+.isround {
     font-size: 14px;
     color: #6b7280;
     margin-bottom: 16px;
@@ -179,14 +179,14 @@
       margin-bottom: 2px;
     }
   
-    .vehicle {
+    .isround {
       font-size: 13px;
       margin-bottom: 4px;
     }
   
     .timeline {
       flex-direction: row;
-      flex-wrap: wrap;
+      /* flex-wrap: wrap; */
       gap: 10px;
       justify-content: space-between;
       margin-bottom: 8px;

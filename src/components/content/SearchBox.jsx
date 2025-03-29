@@ -1,19 +1,17 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import Select from "react-select";
 import { FaMapMarkerAlt, FaExchangeAlt, FaSearch, FaRegCalendarAlt } from "react-icons/fa";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "./searchbox.module.css";
-import CustomOption from '../option/CustomOption';
-
+import CustomOption from "../option/CustomOption";
+import { searchTrips } from "../api/apiTrip";
 
 const SearchBox = () => {
   const locationOptions = [
-    { value: "hanoi", label: "Số 456 Minh Khai, P.Vĩnh Tuy, Q.Hai Bà Trưng, TP.Hà Nội" },
-    { value: "namdinh", label: "Số 353 Trần Hưng Đạo, P.Cửa Bắc, TP.Nam Định" },
-    { value: "giapbat", label: "Bến xe Giáp Bát, Hà Nội" },
-    { value: "doquan", label: "Cầu Đò Quan, Nam Định" }
+    { value: "Hà Nội", label: "Hà Nội" },
+    { value: "Nam Định", label: "Nam Định" },
   ];
 
   const [departure, setDeparture] = useState(null);
@@ -22,24 +20,70 @@ const SearchBox = () => {
   const [isSwapped, setIsSwapped] = useState(false);
   const isMobile = window.innerWidth <= 768;
   const navigate = useNavigate();
-  const handleSearchClick = () => {
-    navigate("/search-trips"); // chuyển hướng đến trang kết quả
+
+  const handleSearchClick = async () => {
+    if (!departure || !destination || !departureDate) {
+      alert("Vui lòng chọn đầy đủ thông tin.");
+      return;
+    }
+
+    try {
+      const formattedDate = departureDate.toISOString();
+      const trips = await searchTrips({
+        origin: departure.value,
+        destination: destination.value,
+        date: formattedDate,
+      });
+
+      navigate("/search-trips", {
+        state: {
+          trips,
+          searchParams: {
+            departure,
+            destination,
+            departureDate: formattedDate,
+            tripType,
+          },
+        },
+      });
+    } catch (error) {
+      alert("Không tìm thấy chuyến hoặc lỗi xảy ra.");
+    }
   };
+  const [tripType, setTripType] = useState("oneway");
+  const location = useLocation();
+  const searchParams = location.state?.searchParams;
+
+  useEffect(() => {
+    if (searchParams) {
+      setDeparture(searchParams.departure);
+      setDestination(searchParams.destination);
+      setDepartureDate(new Date(searchParams.departureDate));
+      setTripType(searchParams.tripType || "oneway");
+    }
+  }, []);
+
+  const swapLocations = () => {
+    setDeparture(destination);
+    setDestination(departure);
+    setIsSwapped(!isSwapped);
+  };
+
   const customSelectStyles = {
-    control: (provided, state) => ({
+    control: (provided) => ({
       ...provided,
-      border: 'none',
-      boxShadow: 'none',
-      backgroundColor: 'transparent',
+      border: "none",
+      boxShadow: "none",
+      backgroundColor: "transparent",
       padding: 0,
-      height: '29px',
-      minHeight: 'unset',
+      height: "29px",
+      minHeight: "unset",
     }),
-    indicatorSeparator: () => ({ display: 'none' }),
+    indicatorSeparator: () => ({ display: "none" }),
     dropdownIndicator: (provided) => ({
       ...provided,
       padding: 0,
-      color: '#666',
+      color: "#666",
     }),
     valueContainer: (provided) => ({
       ...provided,
@@ -52,34 +96,26 @@ const SearchBox = () => {
     }),
     menu: (provided) => ({
       ...provided,
-      borderRadius: '8px',
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-      overflow: 'hidden',
-      width: isMobile ? '100%' : 'max-content',
-      minWidth: isMobile ? '100%' : '250px',
-      maxWidth: isMobile ? '100%' : '350px',
-      transform: isMobile ? 'translateX(-40px)' : 'translateX(-40px)',
+      borderRadius: "8px",
+      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+      overflow: "hidden",
+      width: isMobile ? "100%" : "max-content",
+      minWidth: isMobile ? "100%" : "250px",
+      maxWidth: isMobile ? "100%" : "350px",
+      transform: "translateX(-40px)",
       zIndex: 10,
     }),
-
     option: (provided, state) => ({
       ...provided,
-      backgroundColor: state.isFocused ? '#f1f8ff' : 'white',
-      color: '#333',
-      padding: '8px 12px',
-      fontSize: '16px',
-      whiteSpace: 'nowrap',           // 👈 không xuống dòng
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',       // 👈 hiện “…” khi quá dài
-      cursor: 'pointer',
-
+      backgroundColor: state.isFocused ? "#f1f8ff" : "white",
+      color: "#333",
+      padding: "8px 12px",
+      fontSize: "16px",
+      whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      cursor: "pointer",
     }),
-  };
-
-  const swapLocations = () => {
-    setDeparture(destination);
-    setDestination(departure);
-    setIsSwapped(!isSwapped);
   };
 
   return (
@@ -88,13 +124,31 @@ const SearchBox = () => {
         <div className={styles.tripOptions}>
           <div className={styles.tripSelection}>
             <label>
-              <input type="radio" name="trip" defaultChecked /> Một chiều
+              <input
+                type="radio"
+                name="trip"
+                value="oneway"
+                checked={tripType === "oneway"}
+                onChange={() => setTripType("oneway")}
+              />
+              Một chiều
             </label>
+
             <label>
-              <input type="radio" name="trip" disabled /> Khứ hồi
+              <input
+                type="radio"
+                name="trip"
+                value="roundtrip"
+                checked={tripType === "roundtrip"}
+                onChange={() => setTripType("roundtrip")}
+              />
+              Khứ hồi
             </label>
+
           </div>
-          <a href="#" className={styles.guideLink}>Hướng dẫn đặt vé</a>
+          <a href="#" className={styles.guideLink}>
+            Hướng dẫn đặt vé
+          </a>
         </div>
 
         <div className={styles.inputGroupWide}>
@@ -113,9 +167,10 @@ const SearchBox = () => {
 
           <button onClick={swapLocations} className={styles.swapBtn}>
             <FaExchangeAlt
-              className={`${styles.iconSwap} ${isSwapped ? styles.rotate : ''}`}
+              className={`${styles.iconSwap} ${isSwapped ? styles.rotate : ""}`}
             />
           </button>
+
           <div className={styles.inputField}>
             <FaMapMarkerAlt className={styles.iconRed} />
             <Select
@@ -128,7 +183,6 @@ const SearchBox = () => {
               components={{ Option: CustomOption }}
             />
           </div>
-
 
           <div className={styles.inputField}>
             <FaRegCalendarAlt className={styles.iconBlue} />

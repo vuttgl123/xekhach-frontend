@@ -1,129 +1,140 @@
 /* --- DESKTOP --- */
 .sidebar {
-    width: 260px;
+  width: 260px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 15px;
+  color: #1f2937;
+  box-sizing: border-box;
+}
+
+.section,
+.subSection {
+  margin-bottom: 28px;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+.subtitle {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #374151;
+}
+
+.radioGroup,
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 6px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  color: #374151;
+}
+
+.option input {
+  margin-right: 10px;
+  transform: scale(1.1);
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+/* Date picker style (tùy chỉnh thêm nếu cần) */
+.datePicker {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #111827;
+}
+
+/* Nút xóa lọc */
+.resetBtn {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #2563eb;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.resetBtn:hover {
+  text-decoration: underline;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100%;
     background-color: white;
     padding: 20px;
-    border-radius: 10px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 15px;
-    color: #1f2937;
-    box-sizing: border-box;
+    z-index: 1001;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
   }
-  
-  /* Phần section giữa các nhóm */
-  .section {
-    margin-bottom: 28px;
+
+  .sidebar.open {
+    transform: translateX(0);
   }
-  
-  /* Tiêu đề */
-  .title {
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: #111827;
+
+  .closeBtn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
   }
-  
-  /* Nhóm lựa chọn */
-  .radioGroup,
-  .checkboxGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-left: 6px;
-  }
-  
-  .option {
+
+  .toggleBtn {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 1002;
     display: flex;
     align-items: center;
+    gap: 8px;
     font-size: 15px;
-    color: #374151;
-  }
-  
-  .option input {
-    margin-right: 10px;
-    transform: scale(1.1);
-    accent-color: #2563eb;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: white;
+    color: #1f2937;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
   }
-  
-  /* Nút xóa lọc */
-  .resetBtn {
-    margin-top: 12px;
-    font-size: 14px;
-    color: #2563eb;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1000;
   }
-  
-  .resetBtn:hover {
-    text-decoration: underline;
-  }
-  
-  /* --- MOBILE --- */
-  @media (max-width: 768px) {
-    /* Sidebar ẩn mặc định, dạng trượt ra */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 80%;
-      max-width: 300px;
-      height: 100%;
-      background-color: white;
-      padding: 20px;
-      z-index: 1001;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-      border-radius: 0;
-      border: none;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    }
-  
-    .sidebar.open {
-      transform: translateX(0);
-    }
-  
-    /* Nút đóng */
-    .closeBtn {
-      background: transparent;
-      border: none;
-      font-size: 20px;
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      cursor: pointer;
-    }
-  
-    /* Nút mở lọc dạng nổi cố định */
-    .toggleBtn {
-      position: fixed;
-      top: 16px;
-      left: 16px;
-      z-index: 1002;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 15px;
-      padding: 8px 14px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      background: white;
-      color: #1f2937;
-      font-weight: 500;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      cursor: pointer;
-    }
-  
-    /* Overlay nền tối */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.35);
-      z-index: 1000;
-    }
-  }
-  
+}

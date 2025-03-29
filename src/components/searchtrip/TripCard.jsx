@@ -13,7 +13,7 @@ export default function TripCard({
     duration = "1h30m",
     from = "Số 456 Minh Khai, P.Vĩnh Tuy, Q.Hai Bà Trưng, TP.Hà Nội",
     to = "Số 353 Trần Hưng Đạo, P.Cửa Bắc, TP.Nam Định",
-    vehicle = "Limousine 16 chỗ",
+    isround = "Một chiều",
     route = "T01: Hà Nội - Nam Định",
     date = "27/03/2025",
     onOpenDetails = () => { }, // 👈 nhận callback mở modal từ cha
@@ -26,7 +26,7 @@ export default function TripCard({
                     <span className={styles.date}>{date}</span>
                 </div>
                 <div className={styles.operator}>{operator}</div>
-                <div className={styles.vehicle}>{vehicle}</div>
+                <div className={styles.isround}>{isround}</div>
 
                 <div className={styles.timeline}>
                     <div className={styles.timeBlock}>
