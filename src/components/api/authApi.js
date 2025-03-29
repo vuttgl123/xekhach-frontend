@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5120/api/users";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL + "/users" || "http://localhost:5120/api/users";
 // const API_BASE_URL = "http://localhost:5120/api/users";
 const DEFAULT_HEADERS = {
     "Content-Type": "application/json",
@@ -20,9 +20,9 @@ const handleResponse = async (response) => {
         }
         throw new Error(errorMessage);
     }
-    
+
     const text = await response.text();
-    return text ? JSON.parse(text) : {}; 
+    return text ? JSON.parse(text) : {};
 };
 
 
