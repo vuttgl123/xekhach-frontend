@@ -57,6 +57,10 @@
     .partnerDropdown {
         display: none; /* Ẩn tất cả mục trừ "Đơn hàng của tôi" */
     }
+    .navItem{
+        font-size: 14px;
+    }
 }
+
 
 

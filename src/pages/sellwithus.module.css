@@ -1,0 +1,145 @@
+.page {
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  /* Hero Section */
+  .hero {
+    position: relative;
+    height: 380px;
+    background: url('https://phongvu.vn/cong-nghe/wp-content/uploads/2024/09/130-hinh-nen-may-tinh-4k-91-1024x640.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 12px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .overlay h1 {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+  
+  .overlay p {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+  
+  .heroButton {
+    background-color: #007bff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .heroButton:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Benefits */
+  .benefitsSection {
+    padding: 60px 20px;
+    background-color: #f9fbff;
+    text-align: center;
+  }
+  
+  .benefitsSection h2 {
+    font-size: 28px;
+    margin-bottom: 32px;
+    color: #007bff;
+  }
+  
+  .benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+  }
+  
+  .benefit {
+    flex: 1 1 240px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 6px 16px rgba(0, 123, 255, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .benefit:hover {
+    transform: translateY(-8px);
+  }
+  
+  .benefit .icon {
+    font-size: 32px;
+    color: #007bff;
+    margin-bottom: 12px;
+  }
+  
+  .benefit h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .benefit p {
+    font-size: 15px;
+    color: #555;
+  }
+  
+  /* CTA Section */
+  .ctaSection {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #ffffff;
+  }
+  
+  .ctaSection h2 {
+    font-size: 26px;
+    color: #222;
+    margin-bottom: 12px;
+  }
+  
+  .ctaSection p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 24px;
+  }
+  
+  .ctaButton {
+    background-color: #28a745;
+    padding: 12px 32px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  
+  .ctaButton:hover {
+    background-color: #1e7e34;
+  }
+  
+  @media (max-width: 768px) {
+    .benefits {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .hero {
+      height: auto;
+      padding: 40px 20px;
+    }
+  
+    .overlay {
+      padding: 24px;
+    }
+  }
+  

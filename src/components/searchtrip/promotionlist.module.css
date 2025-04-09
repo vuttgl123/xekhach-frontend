@@ -1,0 +1,100 @@
+/* PromotionList.module.css */
+.promotionList {
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .heading {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .promotionContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 10px;
+  }
+  
+  .promotionCard {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .promotionCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .promotionTitle {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2d2d2d;
+    margin-bottom: 15px;
+  }
+  
+  .promotionDescription {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .discountInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .discount {
+    font-size: 18px;
+    font-weight: bold;
+    color: #28a745; /* Green color */
+    margin-bottom: 8px;
+  }
+  
+  .minAmount {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  @media (max-width: 768px) {
+    .promotionList {
+      padding: 10px;
+    }
+  
+    .promotionContainer {
+      grid-template-columns: 1fr; /* Chỉ một cột trên mobile */
+      gap: 10px;
+    }
+  
+    .promotionCard {
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  
+    .promotionTitle {
+      font-size: 20px; /* Giảm kích thước tiêu đề trên mobile */
+      margin-bottom: 10px;
+    }
+  
+    .promotionDescription {
+      font-size: 14px; /* Giảm kích thước mô tả trên mobile */
+      margin-bottom: 10px;
+    }
+  
+    .discount {
+      font-size: 16px; /* Giảm kích thước giảm giá trên mobile */
+    }
+  
+    .minAmount {
+      font-size: 12px; /* Giảm kích thước mức giá tối thiểu trên mobile */
+    }
+  }

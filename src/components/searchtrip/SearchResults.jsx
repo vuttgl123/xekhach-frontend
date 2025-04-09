@@ -53,9 +53,10 @@ const SearchResults = ({ trips, tripType }) => {
                 rating={rating}
                 reviews={reviews}
                 isround={tripType === "roundtrip" ? "Khứ hồi" : "Một chiều"}
+                vehicleDriverId={trip.vehicleDriverId} // Thêm vehicleDriverId vào TripCard
                 onOpenDetails={() => {
-                  setSelectedTrip(trip);
-                  setShowModal(true);
+                  setSelectedTrip(trip); // Lưu chuyến đi được chọn vào state
+                  setShowModal(true); // Mở modal
                 }}
               />
             );
@@ -67,7 +68,7 @@ const SearchResults = ({ trips, tripType }) => {
         <TripDetailsModal
           isOpen={showModal}
           onClose={() => setShowModal(false)}
-          trip={selectedTrip}
+          trip={selectedTrip} // Truyền chuyến đi đã chọn vào modal
         />
       )}
     </div>

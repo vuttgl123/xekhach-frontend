@@ -1,0 +1,107 @@
+.driverInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center; /* Căn giữa tất cả nội dung */
+  }
+  
+  .driverInfo h3 {
+    font-size: 30px;  /* Tăng kích thước tiêu đề */
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .driverInfo p {
+    font-size: 20px;  /* Tăng kích thước văn bản */
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .driverInfo .infoRow {
+    display: flex;
+    justify-content: center; /* Căn giữa toàn bộ nội dung */
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .driverInfo .infoRow img {
+    width: 150px;  /* Tăng kích thước ảnh */
+    height: 200px;  /* Tăng chiều cao */
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .driverInfo .infoRow .details {
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Căn trái cho thông tin */
+  }
+  
+  .driverInfo .infoRow .details strong {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .driverInfo .infoRow .details span {
+    font-size: 22px;  /* Tăng kích thước chữ trong thông tin */
+    color: #777;
+  }
+  
+  .driverInfo .largeText {
+    font-size: 24px;  /* Làm cho các thông tin quan trọng lớn hơn */
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .driverInfo .buttonWrapper {
+    display: none; /* Ẩn các nút "Liên hệ tài xế" và "Chọn chuyến xe" */
+  }
+  
+
+ /* Cập nhật toàn bộ layout cho mobile */
+@media (max-width: 768px) {
+    .driverInfo {
+      max-width: 100%;
+      text-align: center;  /* Căn giữa toàn bộ nội dung */
+    }
+  
+    .driverInfo h3 {
+      font-size: 24px;
+    }
+  
+    .driverInfo .infoRow {
+      flex-direction: column;  /* Sắp xếp ảnh và thông tin dọc */
+      align-items: center;  /* Căn giữa ảnh và thông tin */
+    }
+  
+    .driverInfo .infoRow img {
+      width: 120px;  /* Kích thước ảnh trên mobile */
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  
+    .driverInfo .infoRow .details {
+      text-align: center; /* Căn giữa thông tin */
+    }
+  
+    .driverInfo .infoRow .details span {
+      font-size: 18px;
+      color: #777;
+    }
+  
+    .driverInfo .largeText {
+      font-size: 20px;
+    }
+  
+    .driverInfo p {
+      font-size: 18px;
+    }
+  }
+  

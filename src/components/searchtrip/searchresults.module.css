@@ -1,38 +1,34 @@
-.resultsPage {
-    padding: 24px;
-  }
-  
-  .heading {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
-  
-  /* ✅ Container có cuộn */
-  .resultScrollArea {
-    max-height: 600px; /* hoặc dùng 70vh nếu muốn responsive */
-    overflow-y: auto;
-    border: 1px solid #e5e7eb;
-    padding: 12px;
-    border-radius: 8px;
-    background: white;
-    scroll-behavior: smooth;
-  }
-  
-  /* ✅ Danh sách TripCard */
-  .resultList {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  /* ✅ Scrollbar tùy chọn (Chrome) */
-  .resultScrollArea::-webkit-scrollbar {
-    width: 6px;
-  }
-  
-  .resultScrollArea::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 4px;
-  }
-  
+.heading {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* ✅ Container có cuộn */
+.resultScrollArea {
+  max-height: 600px;
+  /* hoặc dùng 70vh nếu muốn responsive */
+  overflow-y: auto;
+  border: 1px solid #e5e7eb;
+  padding: 12px;
+  border-radius: 8px;
+  background: white;
+  scroll-behavior: smooth;
+}
+
+/* ✅ Danh sách TripCard */
+.resultList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ✅ Scrollbar tùy chọn (Chrome) */
+.resultScrollArea::-webkit-scrollbar {
+  width: 6px;
+}
+
+.resultScrollArea::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}

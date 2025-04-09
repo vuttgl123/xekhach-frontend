@@ -1,43 +1,87 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Select from "react-select";
-import { FaMapMarkerAlt, FaExchangeAlt, FaSearch, FaRegCalendarAlt } from "react-icons/fa";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { showSuccessAlert } from "../message/SuccessAlert";
+import { showErrorAlert } from "../message/ErrorAlert";
+
+import { FaMapMarkerAlt, FaExchangeAlt, FaSearch, FaRegCalendarAlt } from "react-icons/fa";
+
 import styles from "./searchbox.module.css";
 import CustomOption from "../option/CustomOption";
 import { searchTrips } from "../api/apiTrip";
+import { getDriverInfo } from "../api/apiDriver";
+import LoadingOverlay from "../loading/LoadingOverlay"; // ✅ Overlay loading
 
 const SearchBox = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const locationOptions = [
-    { value: "Hà Nội", label: "Hà Nội" },
-    { value: "Nam Định", label: "Nam Định" },
+    { value: "Hà Nội", label: "Số 456 Minh Khai, P.Vĩnh Tuy, Q.Hai Bà Trưng, TP.Hà Nội" },
+    { value: "Nam Định", label: "Số 353 Trần Hưng Đạo, P.Cửa Bắc, TP.Nam Định" },
   ];
 
   const [departure, setDeparture] = useState(null);
   const [destination, setDestination] = useState(null);
   const [departureDate, setDepartureDate] = useState(new Date());
+  const [tripType, setTripType] = useState("oneway");
   const [isSwapped, setIsSwapped] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const isMobile = window.innerWidth <= 768;
-  const navigate = useNavigate();
+
+  // Lấy dữ liệu từ URL nếu quay lại từ trang tìm chuyến
+  useEffect(() => {
+    const searchParams = location.state?.searchParams;
+    if (searchParams) {
+      setDeparture(searchParams.departure);
+      setDestination(searchParams.destination);
+      setDepartureDate(new Date(searchParams.departureDate));
+      setTripType(searchParams.tripType || "oneway");
+    }
+  }, [location.state]);
 
   const handleSearchClick = async () => {
     if (!departure || !destination || !departureDate) {
-      alert("Vui lòng chọn đầy đủ thông tin.");
+      showErrorAlert("Vui lòng chọn đầy đủ thông tin.");
       return;
     }
 
+    setIsLoading(true);
+
     try {
       const formattedDate = departureDate.toISOString();
+
+      // Tìm kiếm chuyến đi
       const trips = await searchTrips({
         origin: departure.value,
         destination: destination.value,
         date: formattedDate,
       });
 
+      if (!trips || trips.length === 0) {
+        showErrorAlert("Không tìm thấy chuyến nào phù hợp.");
+        return;
+      }
+
+      // ✅ Hiển thị thông báo thành công trước khi chuyển trang
+      await showSuccessAlert("Tìm thấy các chuyến xe đang hoạt động!");
+
+      // Lấy thông tin tài xế cho mỗi chuyến đi
+      const tripsWithDriverInfo = await Promise.all(
+        trips.map(async (trip) => {
+          const driver = await getDriverInfo(trip.vehicleDriverId); // Lấy thông tin tài xế
+          const tripWithDriver = { ...trip, driverInfo: driver }; // Lưu thông tin tài xế vào chuyến đi
+          return tripWithDriver;
+        })
+      );
+
+      // Chuyển đến trang tìm chuyến với dữ liệu chuyến đi và thông tin tài xế
       navigate("/search-trips", {
         state: {
-          trips,
+          trips: tripsWithDriverInfo, // Chuyến đi đã có thông tin tài xế
           searchParams: {
             departure,
             destination,
@@ -47,21 +91,12 @@ const SearchBox = () => {
         },
       });
     } catch (error) {
-      alert("Không tìm thấy chuyến hoặc lỗi xảy ra.");
+      showErrorAlert("Đã xảy ra lỗi khi tìm kiếm. Vui lòng thử lại.");
+    } finally {
+      setIsLoading(false);
     }
   };
-  const [tripType, setTripType] = useState("oneway");
-  const location = useLocation();
-  const searchParams = location.state?.searchParams;
 
-  useEffect(() => {
-    if (searchParams) {
-      setDeparture(searchParams.departure);
-      setDestination(searchParams.destination);
-      setDepartureDate(new Date(searchParams.departureDate));
-      setTripType(searchParams.tripType || "oneway");
-    }
-  }, []);
 
   const swapLocations = () => {
     setDeparture(destination);
@@ -120,7 +155,10 @@ const SearchBox = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.searchBox}>
+      <div className={styles.searchBox} style={{ position: "relative" }}>
+        {/* ✅ Loading overlay */}
+        {isLoading && <LoadingOverlay text="Đang tìm chuyến xe..." />}
+
         <div className={styles.tripOptions}>
           <div className={styles.tripSelection}>
             <label>
@@ -130,6 +168,7 @@ const SearchBox = () => {
                 value="oneway"
                 checked={tripType === "oneway"}
                 onChange={() => setTripType("oneway")}
+                disabled={isLoading}
               />
               Một chiều
             </label>
@@ -141,17 +180,18 @@ const SearchBox = () => {
                 value="roundtrip"
                 checked={tripType === "roundtrip"}
                 onChange={() => setTripType("roundtrip")}
+                disabled={isLoading}
               />
               Khứ hồi
             </label>
-
           </div>
-          <a href="#" className={styles.guideLink}>
+          <a href="/booking-guide" className={styles.guideLink}>
             Hướng dẫn đặt vé
           </a>
         </div>
 
         <div className={styles.inputGroupWide}>
+          {/* Nơi xuất phát */}
           <div className={styles.inputField}>
             <FaMapMarkerAlt className={styles.iconBlue} />
             <Select
@@ -162,15 +202,18 @@ const SearchBox = () => {
               styles={customSelectStyles}
               className={styles.selectBox}
               components={{ Option: CustomOption }}
+              isDisabled={isLoading}
             />
           </div>
 
-          <button onClick={swapLocations} className={styles.swapBtn}>
+          {/* Nút hoán đổi */}
+          <button onClick={swapLocations} className={styles.swapBtn} disabled={isLoading}>
             <FaExchangeAlt
               className={`${styles.iconSwap} ${isSwapped ? styles.rotate : ""}`}
             />
           </button>
 
+          {/* Nơi đến */}
           <div className={styles.inputField}>
             <FaMapMarkerAlt className={styles.iconRed} />
             <Select
@@ -181,9 +224,11 @@ const SearchBox = () => {
               styles={customSelectStyles}
               className={styles.selectBox}
               components={{ Option: CustomOption }}
+              isDisabled={isLoading}
             />
           </div>
 
+          {/* Ngày đi */}
           <div className={styles.inputField}>
             <FaRegCalendarAlt className={styles.iconBlue} />
             <DatePicker
@@ -192,12 +237,22 @@ const SearchBox = () => {
               className={styles.datePicker}
               dateFormat="EEE, dd/MM/yyyy"
               minDate={new Date()}
+              disabled={isLoading}
             />
           </div>
         </div>
 
-        <button className={styles.searchBtn} onClick={handleSearchClick}>
-          <FaSearch /> Tìm kiếm
+        {/* Nút tìm kiếm */}
+        <button
+          className={styles.searchBtn}
+          onClick={handleSearchClick}
+          disabled={isLoading}
+        >
+          {isLoading ? "Đang tìm..." : (
+            <>
+              <FaSearch /> Tìm kiếm
+            </>
+          )}
         </button>
       </div>
     </div>

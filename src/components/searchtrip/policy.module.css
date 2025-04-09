@@ -1,0 +1,41 @@
+/* Phần Chính sách */
+.policy {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .policySection {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .policySection h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .policySection p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .policy {
+      padding: 10px;
+    }
+  
+    .policySection h4 {
+      font-size: 18px;
+    }
+  
+    .policySection p {
+      font-size: 14px;
+    }
+  }
+  

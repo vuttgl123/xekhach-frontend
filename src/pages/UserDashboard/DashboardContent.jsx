@@ -1,7 +1,12 @@
 import styles from "./dashboardcontent.module.css";
 import UserProfile from "./UserProfile";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
+import LoadingOverlay from "../../components/loading/LoadingOverlay";
 
 const DashboardContent = ({ section }) => {
+    const { user } = useContext(UserContext);
+
     return (
         <main className={styles.content}>
             {section === "dashboard" && (
@@ -25,7 +30,12 @@ const DashboardContent = ({ section }) => {
                 </div>
             )}
 
-            {section === "profile" && <UserProfile />}
+            {section === "profile" && (
+                <>
+                    {user ? <UserProfile user={user} /> : <LoadingOverlay text="Đang tải hồ sơ..." />}
+                </>
+            )}
+
             {section === "membership" && <p>Thông tin thành viên.</p>}
             {section === "tickets" && <p>Vé của tôi.</p>}
             {section === "reviews" && <p>Nhận xét chuyến đi.</p>}
